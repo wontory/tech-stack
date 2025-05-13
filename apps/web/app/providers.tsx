@@ -1,5 +1,6 @@
 'use client'
 
+import { SidebarProvider } from '@workspace/ui/components/sidebar'
 import { ThemeProvider as NextThemesProvider } from 'next-themes'
 
 export function Providers({ children }: { children: React.ReactNode }) {
@@ -11,7 +12,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
       disableTransitionOnChange
       enableColorScheme
     >
-      {children}
+      <SidebarProvider>{children}</SidebarProvider>
     </NextThemesProvider>
   )
 }
