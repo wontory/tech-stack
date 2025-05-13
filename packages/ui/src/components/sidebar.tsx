@@ -11,6 +11,7 @@ import {
   useMemo,
   useState,
 } from 'react'
+
 import { Button } from '#components/button'
 import { Input } from '#components/input'
 import { Separator } from '#components/separator'
@@ -50,7 +51,7 @@ type SidebarContextProps = {
 
 const SidebarContext = createContext<SidebarContextProps | null>(null)
 
-function useSidebar() {
+const useSidebar = () => {
   const context = useContext(SidebarContext)
   if (!context) {
     throw new Error('useSidebar must be used within a SidebarProvider.')
