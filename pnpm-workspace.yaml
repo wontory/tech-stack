@@ -1,0 +1,23 @@
+packages:
+  - "apps/*"
+  - "packages/*"
+
+catalogs:
+  core:
+    "@total-typescript/tsconfig": ^1.0.0
+    "typescript": ^5.0.0
+
+  react:
+    "@types/react": ^19.0.0
+    "@types/react-dom": ^19.0.0
+    "react": ^19.0.0
+    "react-dom": ^19.0.0
+
+  style:
+    "@tailwindcss/postcss": ^4.0.0
+    "motion": ^12.0.0
+    "tailwindcss": ^4.0.0
+
+  utility:
+    "date-fns": ^4.0.0
+    "es-toolkit": ^1.0.0

@@ -1,0 +1,2 @@
+@import "@workspace/ui/globals.css";
+@source '../../../../packages/ui/**/*.{ts,tsx}';

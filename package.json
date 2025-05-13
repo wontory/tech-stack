@@ -1,0 +1,37 @@
+{
+  "name": "tech-stack",
+  "private": true,
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "format": "biome format .",
+    "format:write": "biome format --write .",
+    "lint": "biome lint .",
+    "lint:write": "biome lint --write .",
+    "lint:write:unsafe": "biome lint --write --unsafe .",
+    "assist": "biome check --formatter-enabled=false --linter-enabled=false .",
+    "assist:write": "biome check --write --formatter-enabled=false --linter-enabled=false .",
+    "check": "biome check .",
+    "check:write": "biome check --write .",
+    "check:write:unsafe": "biome check --write --unsafe ."
+  },
+  "dependencies": {
+    "@changesets/cli": "^2.29.4"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.0.0-beta.3",
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "lefthook": "^1.11.12",
+    "turbo": "^2.5.3"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "packageManager": "pnpm@10.10.0",
+  "engines": {
+    "node": ">=18"
+  }
+}
