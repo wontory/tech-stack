@@ -25,13 +25,6 @@ catalogs:
     react-dom:
       specifier: ^19.0.0
       version: 19.1.0
-  style:
-    '@tailwindcss/postcss':
-      specifier: ^4.0.0
-      version: 4.1.6
-    tailwindcss:
-      specifier: ^4.0.0
-      version: 4.1.6
 
 importers:
 
@@ -77,6 +70,9 @@ importers:
       react-dom:
         specifier: catalog:react
         version: 19.1.0(react@19.1.0)
+      simple-icons:
+        specifier: ^14.13.0
+        version: 14.13.0
     devDependencies:
       '@total-typescript/tsconfig':
         specifier: catalog:core
@@ -1700,6 +1696,10 @@ packages:
   signal-exit@4.1.0:
     resolution: {integrity: sha512-bzyZ1e88w9O1iNJbKnOlvYTrWPDl46O1bG0D3XInv+9tkPrxrN8jUUTiFlDkkmKWgn1M6CfIA13SuGqOa9Korw==}
     engines: {node: '>=14'}
+
+  simple-icons@14.13.0:
+    resolution: {integrity: sha512-RUe7J0SDDBAh9Py1ANOA8LkDKJSL+TleDB3+FIaihqf2cNsjeM+V6Pkr3hXX4ug0ZQXToWikdjMMKSFIN2Tc/g==}
+    engines: {node: '>=0.12.18'}
 
   simple-swizzle@0.2.2:
     resolution: {integrity: sha512-JA//kQgZtbuY83m+xT+tXJkmJncGMTFT+C+g2h2R9uxkYIrE2yy9sgmcLhCnw57/WSD+Eh3J97FPEDFnbXnDUg==}
@@ -3363,6 +3363,8 @@ snapshots:
   shebang-regex@3.0.0: {}
 
   signal-exit@4.1.0: {}
+
+  simple-icons@14.13.0: {}
 
   simple-swizzle@0.2.2:
     dependencies:
