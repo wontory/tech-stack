@@ -13,8 +13,10 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className="font-sans antialiased">
         <Providers>
-          <AppSidebar />
-          <SidebarInset>{children}</SidebarInset>
+          <AppSidebar variant="inset" />
+          <SidebarInset className="md:peer-data-[variant=inset]:peer-data-[state=collapsed]:ml-0">
+            {children}
+          </SidebarInset>
         </Providers>
       </body>
     </html>

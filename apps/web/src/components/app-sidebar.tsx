@@ -5,6 +5,7 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  SidebarRail,
 } from '@workspace/ui/components/sidebar'
 import { LayersIcon, OrbitIcon, RectangleHorizontalIcon } from 'lucide-react'
 import Link from 'next/link'
@@ -28,16 +29,13 @@ const data = {
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
-    <Sidebar collapsible="offcanvas" {...props}>
+    <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton
-              asChild
-              className="data-[slot=sidebar-menu-button]:!p-1.5"
-            >
+            <SidebarMenuButton asChild>
               <Link href="/">
-                <LayersIcon className="h-5 w-5" />
+                <LayersIcon />
                 <span className="font-semibold text-base">tech-stack</span>
               </Link>
             </SidebarMenuButton>
@@ -47,6 +45,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       <SidebarContent>
         <NavMain items={data.navMain} />
       </SidebarContent>
+      <SidebarRail />
     </Sidebar>
   )
 }
