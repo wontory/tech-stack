@@ -1,5 +1,5 @@
-import { Separator } from '@workspace/ui/components/separator'
-import { SidebarTrigger } from '@workspace/ui/components/sidebar'
+import { Separator } from '@tech-stack/ui/components/separator'
+import { SidebarTrigger } from '@tech-stack/ui/components/sidebar'
 
 export function SiteHeader({ title }: Readonly<{ title: string }>) {
   return (

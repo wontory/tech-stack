@@ -5,7 +5,7 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-} from '@workspace/ui/components/sidebar'
+} from '@tech-stack/ui/components/sidebar'
 import { type LucideIcon, StarIcon } from 'lucide-react'
 import Link from 'next/link'
 

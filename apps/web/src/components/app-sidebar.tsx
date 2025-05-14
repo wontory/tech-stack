@@ -6,7 +6,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarRail,
-} from '@workspace/ui/components/sidebar'
+} from '@tech-stack/ui/components/sidebar'
 import { LayersIcon, OrbitIcon, RectangleHorizontalIcon } from 'lucide-react'
 import Link from 'next/link'
 

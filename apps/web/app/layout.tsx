@@ -1,4 +1,4 @@
-import { SidebarInset } from '@workspace/ui/components/sidebar'
+import { SidebarInset } from '@tech-stack/ui/components/sidebar'
 
 import '#styles/globals.css'
 import { Providers } from '#app/providers'

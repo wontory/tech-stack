@@ -1,6 +1,6 @@
 'use client'
 
-import { Button } from '@workspace/ui/components/button'
+import { Button } from '@tech-stack/ui/components/button'
 import { MoonIcon, SunIcon } from 'lucide-react'
 import { useTheme } from 'next-themes'
 

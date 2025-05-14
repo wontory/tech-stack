@@ -10,8 +10,8 @@
     "check-types": "tsc --noEmit"
   },
   "dependencies": {
-    "@workspace/orbit": "workspace:*",
-    "@workspace/ui": "workspace:*",
+    "@tech-stack/orbit": "workspace:*",
+    "@tech-stack/ui": "workspace:*",
     "lucide-react": "^0.510.0",
     "next": "^15.3.2",
     "next-themes": "^0.4.6",

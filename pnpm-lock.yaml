@@ -59,10 +59,10 @@ importers:
 
   apps/web:
     dependencies:
-      '@workspace/orbit':
+      '@tech-stack/orbit':
         specifier: workspace:*
         version: link:../../packages/orbit
-      '@workspace/ui':
+      '@tech-stack/ui':
         specifier: workspace:*
         version: link:../../packages/ui
       lucide-react:

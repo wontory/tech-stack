@@ -1,4 +1,4 @@
-import { generateOrbitSvg } from '@workspace/orbit'
+import { generateOrbitSvg } from '@tech-stack/orbit'
 import type { NextRequest } from 'next/server'
 import type { SimpleIcon } from 'simple-icons'
 import * as simpleIcons from 'simple-icons/icons'
