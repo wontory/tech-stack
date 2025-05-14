@@ -21,7 +21,7 @@ export function SectionCards() {
               Orbit
             </CardTitle>
           </CardHeader>
-          <CardContent className="relative">
+          <CardContent className="relative max-h-80">
             <div className="relative aspect-square size-full">
               <Image
                 src="/api/orbit?text=Orbit&slugs=typescript,simpleicons,tailwindcss,nextdotjs"
