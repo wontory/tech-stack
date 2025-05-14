@@ -1,12 +1,12 @@
 const SVG_CONFIG = {
-  fontSize: 32,
-  baseRadius: 80,
+  fontSize: 84,
+  baseRadius: 52,
   radiusIncrement: 60,
   baseAnimationDuration: 8,
   durationIncrement: 4,
   baseSizeMultiplier: 0.8,
   sizeIncrementFactor: 0.15,
-  iconBaseSize: 24,
+  iconBaseSize: 48,
 } as const
 
 const COLORS = {
@@ -21,8 +21,8 @@ const COLORS = {
     width: 0.5,
   },
   glow: {
-    floodColor: '#6E7681',
-    floodOpacity: 0.75,
+    floodColor: '#FFFFFF',
+    floodOpacity: 0.33,
   },
 } as const
 
