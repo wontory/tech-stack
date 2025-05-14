@@ -133,6 +133,7 @@ const generateIconSvg = (
         fill="#${icon.hex}" 
         filter="url(#glow)"
         xmlns="http://www.w3.org/2000/svg"
+        style="overflow: visible"
       >
         <path d="${icon.path}" />
       </svg>
@@ -228,8 +229,8 @@ export const generateOrbitSvg = (text: string, icons: SimpleIcon[]): string => {
   return `
       <svg width="${svgDimensions.width}" height="${svgDimensions.height}" viewBox="0 0 ${svgDimensions.width} ${svgDimensions.height}" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         ${orbitsContent}
-        ${textContent}
         ${iconsContent}
+        ${textContent}
       </svg>
     `
 }
