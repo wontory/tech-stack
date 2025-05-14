@@ -29,7 +29,8 @@ export default function Page() {
                   Simple Icons
                 </Link>
                 , allowing users to create dynamic and visually engaging icons
-                for their projects. <br />
+                for their projects.
+                <br />
                 By utilizing a library of icons from Simple Icons, the tool
                 generates customizable animated SVGs that can be easily embedded
                 into GitHub README.md files or used in project documentation.
@@ -72,8 +73,9 @@ export default function Page() {
                 >
                   GitHub repository
                 </Link>{' '}
-                a ⭐ Star! Your support and feedback help drive the project
-                forward.
+                a ⭐ Star!
+                <br />
+                Your support and feedback help drive the project forward.
               </p>
               <p className="text-muted-foreground">
                 Made with ❤️ by{' '}
