@@ -18,7 +18,7 @@ export default function Page() {
         </h2>
         <div className="relative aspect-square size-full max-w-4xl">
           <Image
-            src="/api/orbit?title=hi&text=tech-stack&slugs=react,reactquery,framer,nextdotjs,remix"
+            src="/api/orbit?text=wontory&slugs=typescript,react,threedotjs,framer"
             alt="Orbit"
             fill={true}
             draggable={false}
