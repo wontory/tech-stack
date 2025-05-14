@@ -21,6 +21,10 @@ const COLORS = {
     opacity: 0.5,
     width: 0.5,
   },
+  glow: {
+    floodColor: '#6E7681',
+    floodOpacity: 0.75,
+  },
 } as const
 
 const FONT_FAMILY = `"Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif`

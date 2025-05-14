@@ -30,6 +30,20 @@ const generateTextStyles = (): string => `
     </style>
   `
 
+const generateGlowDefs = (): string => `
+  <defs>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur" />
+      <feFlood flood-color="${COLORS.glow.floodColor}" flood-opacity="${COLORS.glow.floodOpacity}" result="color" />
+      <feComposite in="color" in2="blur" operator="in" result="glow" />
+      <feMerge>
+        <feMergeNode in="glow" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+  `
+
 const generateTextElement = (
   text: string,
   center: Point,
@@ -115,6 +129,7 @@ const generateIconSvg = (
         height="${iconSize}" 
         viewBox="0 0 24 24" 
         fill="#${icon.hex}" 
+        filter="url(#glow)"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path d="${icon.path}" />
@@ -169,9 +184,12 @@ const generateIconsContent = (
   maxOrbits: number,
   config: OrbitConfig,
 ): string => {
-  return Array.from({ length: maxOrbits }, (_, orbitIndex) =>
-    generateIconsForOrbit(icons, orbitIndex, config),
-  ).join('')
+  return `
+      ${generateGlowDefs()}
+      ${Array.from({ length: maxOrbits }, (_, orbitIndex) =>
+        generateIconsForOrbit(icons, orbitIndex, config),
+      ).join('')}
+    `
 }
 
 export const generateOrbitSvg = (text: string, icons: SimpleIcon[]): string => {
