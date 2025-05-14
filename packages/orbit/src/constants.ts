@@ -17,7 +17,7 @@ const COLORS = {
   },
   orbit: {
     stroke: '#6E7681',
-    opacity: 0.5,
+    opacity: 0.33,
     width: 0.5,
   },
   glow: {
