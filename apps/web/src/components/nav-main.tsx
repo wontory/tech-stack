@@ -23,7 +23,8 @@ export function NavMain({
   return (
     <SidebarGroup>
       <SidebarGroupContent className="flex flex-col gap-2">
-        <SidebarMenu>
+        {/* TODO: Refactor not to use z-index (group-label overlaps sidebar-menu-button) */}
+        <SidebarMenu className="z-10">
           <SidebarMenuItem className="flex items-center gap-2">
             <SidebarMenuButton
               tooltip="Star on GitHub"
@@ -41,7 +42,10 @@ export function NavMain({
             <ToggleTheme />
           </SidebarMenuItem>
         </SidebarMenu>
-        <SidebarGroupLabel>Generators</SidebarGroupLabel>
+        {/* TODO: Refactor not to use z-index (group-label overlaps sidebar-menu-button) */}
+        <SidebarGroupLabel className="group-data-[collapsible=icon]:select-none">
+          Generators
+        </SidebarGroupLabel>
         <SidebarMenu>
           {items.map((item) => (
             <SidebarMenuItem key={item.title}>
