@@ -25,6 +25,13 @@ catalogs:
     react-dom:
       specifier: ^19.0.0
       version: 19.1.0
+  style:
+    '@tailwindcss/postcss':
+      specifier: ^4.0.0
+      version: 4.1.6
+    tailwindcss:
+      specifier: ^4.0.0
+      version: 4.1.6
 
 importers:
 
@@ -52,6 +59,9 @@ importers:
 
   apps/web:
     dependencies:
+      '@workspace/orbit':
+        specifier: workspace:*
+        version: link:../../packages/orbit
       '@workspace/ui':
         specifier: workspace:*
         version: link:../../packages/ui
@@ -86,6 +96,19 @@ importers:
       '@types/react-dom':
         specifier: catalog:react
         version: 19.1.5(@types/react@19.1.4)
+      typescript:
+        specifier: catalog:core
+        version: 5.8.3
+
+  packages/orbit:
+    dependencies:
+      simple-icons:
+        specifier: ^14.13.0
+        version: 14.13.0
+    devDependencies:
+      '@total-typescript/tsconfig':
+        specifier: catalog:core
+        version: 1.0.4
       typescript:
         specifier: catalog:core
         version: 5.8.3

@@ -1,8 +1,7 @@
+import { generateOrbitSvg } from '@workspace/orbit'
 import type { NextRequest } from 'next/server'
 import type { SimpleIcon } from 'simple-icons'
 import * as simpleIcons from 'simple-icons/icons'
-
-import { generateOrbitSvg } from '#libs/generate-orbit-svg'
 
 type SimpleIconKey = keyof typeof simpleIcons
 
