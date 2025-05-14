@@ -7,7 +7,6 @@ const SVG_CONFIG = {
   baseSizeMultiplier: 0.8,
   sizeIncrementFactor: 0.15,
   iconBaseSize: 24,
-  padding: 20,
 } as const
 
 const COLORS = {

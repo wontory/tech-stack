@@ -9,6 +9,24 @@ const calculateLargestOrbitRadius = (
   return calculateOrbitRadius(baseRadius, radiusIncrement, lastOrbitIndex)
 }
 
+const calculateOuterOrbitIconSize = (
+  baseSize: number,
+  baseMultiplier: number,
+  incrementFactor: number,
+  orbitIndex: number,
+): number => {
+  const iconSizeMultiplier = calculateIconSizeMultiplier(
+    baseMultiplier,
+    incrementFactor,
+    orbitIndex,
+  )
+  return baseSize * iconSizeMultiplier
+}
+
+const calculateDynamicPadding = (outerOrbitIconSize: number): number => {
+  return Math.ceil(outerOrbitIconSize * 1.2)
+}
+
 const calculateSvgDimensions = (
   largestOrbitRadius: number,
   padding: number,
@@ -45,6 +63,8 @@ const calculateIconSizeMultiplier = (
 
 export {
   calculateLargestOrbitRadius,
+  calculateOuterOrbitIconSize,
+  calculateDynamicPadding,
   calculateSvgDimensions,
   calculateCenter,
   calculateOrbitRadius,

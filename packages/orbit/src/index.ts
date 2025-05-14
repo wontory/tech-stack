@@ -5,9 +5,11 @@ import type { OrbitConfig, Point } from '#types'
 import {
   calculateAnimationDuration,
   calculateCenter,
+  calculateDynamicPadding,
   calculateIconSizeMultiplier,
   calculateLargestOrbitRadius,
   calculateOrbitRadius,
+  calculateOuterOrbitIconSize,
   calculateSvgDimensions,
 } from '#utils'
 
@@ -199,10 +201,14 @@ export const generateOrbitSvg = (text: string, icons: SimpleIcon[]): string => {
     SVG_CONFIG.radiusIncrement,
     maxOrbits,
   )
-  const svgDimensions = calculateSvgDimensions(
-    largestOrbitRadius,
-    SVG_CONFIG.padding,
+  const outerOrbitIconSize = calculateOuterOrbitIconSize(
+    SVG_CONFIG.iconBaseSize,
+    SVG_CONFIG.baseSizeMultiplier,
+    SVG_CONFIG.sizeIncrementFactor,
+    maxOrbits - 1,
   )
+  const padding = calculateDynamicPadding(outerOrbitIconSize)
+  const svgDimensions = calculateSvgDimensions(largestOrbitRadius, padding)
   const center = calculateCenter(svgDimensions.width, svgDimensions.height)
 
   const orbitConfig: OrbitConfig = {
