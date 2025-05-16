@@ -7,8 +7,8 @@ type SimpleIconKey = keyof typeof simpleIcons
 
 export async function GET(request: NextRequest) {
   const { searchParams } = request.nextUrl
-  const text = searchParams.get('text') || 'Orbit'
-  const slugs = searchParams.get('slugs')
+  const text = searchParams.get('text') || ''
+  const slugs = searchParams.get('slugs') || ''
   const icons: SimpleIcon[] = []
 
   if (slugs) {
