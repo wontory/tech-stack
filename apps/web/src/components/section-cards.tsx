@@ -29,7 +29,9 @@ function SectionCard({
           {title}
         </CardTitle>
       </CardHeader>
-      <CardContent className="relative max-h-80">{content}</CardContent>
+      <CardContent className="relative flex max-h-80 flex-1 flex-col">
+        {content}
+      </CardContent>
       <CardFooter className="flex-col items-start gap-1 text-sm">
         {footer}
       </CardFooter>
