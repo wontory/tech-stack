@@ -21,8 +21,8 @@ const COLORS = {
     width: 0.5,
   },
   glow: {
-    floodColor: '#FFFFFF',
-    floodOpacity: 0.33,
+    floodColor: '#808080',
+    floodOpacity: 0.4,
   },
 } as const
 
