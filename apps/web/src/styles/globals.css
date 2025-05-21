@@ -2,5 +2,5 @@
 @source '../../../../packages/ui/**/*.{ts,tsx}';
 
 @theme inline {
-    --drop-shadow-svg: 0 0 12px rgba(128, 128, 128, 0.4)
+  --drop-shadow-svg: 0 0 12px rgba(128, 128, 128, 0.4);
 }
