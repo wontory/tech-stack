@@ -3,7 +3,7 @@ const SVG_CONFIG = {
   baseRadius: 52,
   radiusIncrement: 60,
   baseAnimationDuration: 8,
-  durationIncrement: 4,
+  durationIncrement: 3,
   baseSizeMultiplier: 0.8,
   sizeIncrementFactor: 0.15,
   iconBaseSize: 48,
