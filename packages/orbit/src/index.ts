@@ -102,27 +102,30 @@ const generateIconPath = (
   center: Point,
   orbitRadius: number,
   animationId: string,
-): string => `
+  iconIndex: number,
+): string => {
+  const direction = iconIndex ? -1 : 1
+
+  return `
     <path 
       id="${animationId}" 
-      d="M ${center.x + orbitRadius} ${center.y} A ${orbitRadius} ${orbitRadius} 0 1 1 ${center.x - orbitRadius} ${center.y} A ${orbitRadius} ${orbitRadius} 0 1 1 ${center.x + orbitRadius} ${center.y}"
+      d="M ${center.x + orbitRadius * direction} ${center.y} A ${orbitRadius} ${orbitRadius} 0 1 1 ${center.x + orbitRadius * -direction} ${center.y} A ${orbitRadius} ${orbitRadius} 0 1 1 ${center.x + orbitRadius * direction} ${center.y}"
       fill="none" 
       stroke="none"
     />
   `
+}
 
 const generateIconSvg = (
   icon: SimpleIcon,
   iconSize: number,
   animationId: string,
   animationDuration: number,
-  iconIndex: number,
 ): string => `
     <g transform="translate(-${iconSize / 2},-${iconSize / 2})">
       <animateMotion 
         dur="${animationDuration}s" 
         repeatCount="indefinite" 
-        begin="${(iconIndex * animationDuration) / 2}s"
       >
         <mpath xlink:href="#${animationId}" />
       </animateMotion>
@@ -169,14 +172,8 @@ const generateIconsForOrbit = (
       const animationId = `orbit-${orbitIndex}-${iconIndex}`
 
       return (
-        generateIconPath(config.center, orbitRadius, animationId) +
-        generateIconSvg(
-          icon,
-          iconSize,
-          animationId,
-          animationDuration,
-          iconIndex,
-        )
+        generateIconPath(config.center, orbitRadius, animationId, iconIndex) +
+        generateIconSvg(icon, iconSize, animationId, animationDuration)
       )
     })
     .join('')
