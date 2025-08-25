@@ -1,5 +1,3 @@
-export const API_BASE_URL = 'http://localhost:3000' as const
-
 export const constructOrbitUrl = (text: string, slugs: string[]): string => {
   const params = new URLSearchParams()
   if (text) params.append('text', text)
