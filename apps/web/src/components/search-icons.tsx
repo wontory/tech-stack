@@ -4,6 +4,7 @@ import { useVirtualizer } from '@tanstack/react-virtual'
 import { Input } from '@tech-stack/ui/components/input'
 import { ScrollArea } from '@tech-stack/ui/components/scroll-area'
 import { useRef, useState } from 'react'
+import useMeasure from 'react-use-measure'
 import type { SimpleIcon } from 'simple-icons'
 import * as simpleIcons from 'simple-icons/icons'
 
@@ -15,6 +16,8 @@ export function SearchIcons({ id }: { id: string }) {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
   const { setSlugs } = useSlugsState()
 
+  const [measureRef, { width: containerWidth }] = useMeasure()
+
   const filteredIcons = (Object.values(simpleIcons) as SimpleIcon[]).filter(
     (icon) => {
       const iconName = icon.title.toLowerCase()
@@ -24,12 +27,16 @@ export function SearchIcons({ id }: { id: string }) {
     },
   )
 
+  const lanes = containerWidth
+    ? Math.max(1, Math.floor(containerWidth / 140))
+    : 4
+
   const rowVirtualizer = useVirtualizer({
     count: filteredIcons.length,
     getScrollElement: () => parentRef.current,
-    estimateSize: () => 0,
+    estimateSize: () => 200,
     overscan: 8,
-    lanes: 4,
+    lanes,
   })
 
   return (
@@ -48,6 +55,7 @@ export function SearchIcons({ id }: { id: string }) {
         ref={parentRef}
       >
         <div
+          ref={measureRef}
           className="relative w-full"
           style={{
             height: rowVirtualizer.getTotalSize(),
@@ -69,8 +77,8 @@ export function SearchIcons({ id }: { id: string }) {
                 onMouseLeave={() => setHoveredIndex(null)}
                 className="absolute top-0 cursor-pointer p-4 transition-opacity duration-200 will-change-transform"
                 style={{
-                  left: `${virtualRow.lane * 25}%`,
-                  width: `25%`,
+                  left: `${(virtualRow.lane / lanes) * 100}%`,
+                  width: `${100 / lanes}%`,
                   transform: `translateY(${virtualRow.start}px)`,
                   opacity:
                     hoveredIndex !== null && hoveredIndex !== virtualRow.index
