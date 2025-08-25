@@ -1,6 +1,5 @@
 'use client'
 
-import Image from 'next/image'
 import type { SimpleIcon } from 'simple-icons'
 import * as simpleIcons from 'simple-icons/icons'
 
@@ -43,10 +42,10 @@ export function SelectedIcons() {
                 dangerouslySetInnerHTML={{
                   __html: svg.replace('<svg', `<svg fill="#${hex}"`),
                 }}
-                className="size-6 drop-shadow-svg transition group-hover:opacity-50"
+                className="size-6 drop-shadow-svg transition-opacity duration-200 group-hover:opacity-50"
               />
               <TrashIcon
-                className="-translate-x-1/2 -translate-y-1/2 absolute top-1/2 left-1/2 opacity-0 transition group-hover:opacity-80"
+                className="-translate-x-1/2 -translate-y-1/2 absolute top-1/2 left-1/2 opacity-0 transition-opacity duration-200 group-hover:opacity-80"
                 size={12}
               />
             </button>

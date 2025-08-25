@@ -9,11 +9,11 @@ import type { SimpleIcon } from 'simple-icons'
 import * as simpleIcons from 'simple-icons/icons'
 
 import { useSlugsState } from '#stores/slugs-context'
+import { PlusIcon } from 'lucide-react'
 
 export function SearchIcons({ id }: { id: string }) {
   const parentRef = useRef<HTMLDivElement>(null)
   const [searchQuery, setSearchQuery] = useState('')
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
   const { setSlugs } = useSlugsState()
 
   const [measureRef, { width: containerWidth }] = useMeasure()
@@ -73,27 +73,27 @@ export function SearchIcons({ id }: { id: string }) {
                 data-index={virtualRow.index}
                 type="button"
                 onClick={() => setSlugs((prev) => [...prev, slug])}
-                onMouseEnter={() => setHoveredIndex(virtualRow.index)}
-                onMouseLeave={() => setHoveredIndex(null)}
-                className="absolute top-0 cursor-pointer p-4 transition-opacity duration-200 will-change-transform"
+                className="group absolute top-0 cursor-pointer p-4 will-change-transform"
                 style={{
                   left: `${(virtualRow.lane / lanes) * 100}%`,
                   width: `${100 / lanes}%`,
                   transform: `translateY(${virtualRow.start}px)`,
-                  opacity:
-                    hoveredIndex !== null && hoveredIndex !== virtualRow.index
-                      ? 0.2
-                      : 1,
                 }}
               >
                 <div className="space-y-2">
-                  <div
-                    // biome-ignore lint/security/noDangerouslySetInnerHtml: simple-icons
-                    dangerouslySetInnerHTML={{
-                      __html: svg.replace('<svg', `<svg fill="#${hex}"`),
-                    }}
-                    className="p-8 *:drop-shadow-svg"
-                  />
+                  <div className="relative">
+                    <div
+                      // biome-ignore lint/security/noDangerouslySetInnerHtml: simple-icons
+                      dangerouslySetInnerHTML={{
+                        __html: svg.replace('<svg', `<svg fill="#${hex}"`),
+                      }}
+                      className="p-8 transition-opacity duration-200 *:drop-shadow-svg group-hover:opacity-50"
+                    />
+                    <PlusIcon
+                      className="-translate-x-1/2 -translate-y-1/2 absolute top-1/2 left-1/2 opacity-0 transition-opacity duration-200 group-hover:opacity-80"
+                      size={32}
+                    />
+                  </div>
                   <div className="*:line-clamp-1">
                     <span className="font-medium">{title}</span>
                     <p className="text-muted-foreground text-xs">{slug}</p>
