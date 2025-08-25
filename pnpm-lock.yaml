@@ -9,9 +9,19 @@ catalogs:
     '@total-typescript/tsconfig':
       specifier: ^1.0.0
       version: 1.0.4
+    '@types/node':
+      specifier: ^22.15.17
+      version: 22.15.17
     typescript:
       specifier: ^5.0.0
       version: 5.8.3
+  icons:
+    lucide-react:
+      specifier: ^0.510.0
+      version: 0.510.0
+    simple-icons:
+      specifier: ^14.13.0
+      version: 14.13.0
   react:
     '@types/react':
       specifier: ^19.0.0
@@ -29,6 +39,9 @@ catalogs:
     '@tailwindcss/postcss':
       specifier: ^4.0.0
       version: 4.1.6
+    next-themes:
+      specifier: ^0.4.6
+      version: 0.4.6
     tailwindcss:
       specifier: ^4.0.0
       version: 4.1.6
@@ -69,13 +82,13 @@ importers:
         specifier: workspace:*
         version: link:../../packages/ui
       lucide-react:
-        specifier: ^0.510.0
+        specifier: catalog:icons
         version: 0.510.0(react@19.1.0)
       next:
         specifier: ^15.3.2
         version: 15.3.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       next-themes:
-        specifier: ^0.4.6
+        specifier: catalog:style
         version: 0.4.6(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react:
         specifier: catalog:react
@@ -90,14 +103,14 @@ importers:
         specifier: ^2.1.7
         version: 2.1.7(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       simple-icons:
-        specifier: ^14.13.0
+        specifier: catalog:icons
         version: 14.13.0
     devDependencies:
       '@total-typescript/tsconfig':
         specifier: catalog:core
         version: 1.0.4
       '@types/node':
-        specifier: ^22.15.17
+        specifier: catalog:core
         version: 22.15.17
       '@types/react':
         specifier: catalog:react
@@ -115,7 +128,7 @@ importers:
   packages/orbit:
     dependencies:
       simple-icons:
-        specifier: ^14.13.0
+        specifier: catalog:icons
         version: 14.13.0
     devDependencies:
       '@total-typescript/tsconfig':
@@ -149,10 +162,10 @@ importers:
         specifier: 1.0.0-beta.3
         version: 1.0.0-beta.3(typescript@5.8.3)
       lucide-react:
-        specifier: ^0.510.0
+        specifier: catalog:icons
         version: 0.510.0(react@19.1.0)
       next-themes:
-        specifier: ^0.4.6
+        specifier: catalog:style
         version: 0.4.6(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react:
         specifier: catalog:react
