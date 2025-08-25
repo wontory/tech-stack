@@ -12,6 +12,7 @@ import { useSlugsState } from '#stores/slugs-context'
 export function SearchIcons({ id }: { id: string }) {
   const parentRef = useRef<HTMLDivElement>(null)
   const [searchQuery, setSearchQuery] = useState('')
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
   const { setSlugs } = useSlugsState()
 
   const filteredIcons = (Object.values(simpleIcons) as SimpleIcon[]).filter(
@@ -47,9 +48,9 @@ export function SearchIcons({ id }: { id: string }) {
         ref={parentRef}
       >
         <div
-          className="group/list relative w-full"
+          className="relative w-full"
           style={{
-            height: `${rowVirtualizer.getTotalSize()}px`,
+            height: rowVirtualizer.getTotalSize(),
           }}
         >
           {rowVirtualizer.getVirtualItems().map((virtualRow) => {
@@ -63,17 +64,21 @@ export function SearchIcons({ id }: { id: string }) {
                 ref={rowVirtualizer.measureElement}
                 data-index={virtualRow.index}
                 type="button"
-                onClick={() => {
-                  setSlugs((prev) => [...prev, slug])
-                }}
-                className="group/item absolute top-0 cursor-pointer p-4 will-change-transform"
+                onClick={() => setSlugs((prev) => [...prev, slug])}
+                onMouseEnter={() => setHoveredIndex(virtualRow.index)}
+                onMouseLeave={() => setHoveredIndex(null)}
+                className="absolute top-0 cursor-pointer p-4 transition-opacity duration-200 will-change-transform"
                 style={{
                   left: `${virtualRow.lane * 25}%`,
                   width: `25%`,
                   transform: `translateY(${virtualRow.start}px)`,
+                  opacity:
+                    hoveredIndex !== null && hoveredIndex !== virtualRow.index
+                      ? 0.2
+                      : 1,
                 }}
               >
-                <div className="space-y-2 transition duration-250 group-hover/list:group-hover/item:opacity-100 group-hover/list:opacity-20">
+                <div className="space-y-2">
                   <div
                     // biome-ignore lint/security/noDangerouslySetInnerHtml: simple-icons
                     dangerouslySetInnerHTML={{
