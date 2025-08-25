@@ -1,8 +1,19 @@
+import type { Metadata } from 'next'
+
 import { SidebarInset } from '@tech-stack/ui/components/sidebar'
 
 import '#styles/globals.css'
 import { Providers } from '#app/providers'
 import { AppSidebar } from '#components/app-sidebar'
+
+export const metadata: Metadata = {
+  title: {
+    template: 'tech-stack/%s',
+    default: 'tech-stack',
+  },
+  description:
+    'Create animated SVG icons for GitHub profiles and project documentation. Generate customizable orbit animations and badges using Simple Icons library.',
+}
 
 export default function RootLayout({
   children,
