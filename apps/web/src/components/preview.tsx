@@ -4,11 +4,11 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@tech-stack/ui/components/card";
-import Image from "next/image";
+} from '@tech-stack/ui/components/card'
+import Image from 'next/image'
 
-import { CodeBlock } from "#components/code-block";
-import { useEffect, useState } from "react";
+import { CodeBlock } from '#components/code-block'
+import { useEffect, useState } from 'react'
 
 export function Preview({ src, code }: { src: string; code: string }) {
   const [, setSrc] = useState(src);
@@ -43,5 +43,5 @@ export function Preview({ src, code }: { src: string; code: string }) {
         </CardFooter>
       </Card>
     </section>
-  );
+  )
 }
