@@ -14,7 +14,7 @@
     "@tech-stack/orbit": "workspace:*",
     "@tech-stack/ui": "workspace:*",
     "lucide-react": "catalog:icons",
-    "next": "^15.3.2",
+    "next": "15.3.8",
     "next-themes": "catalog:style",
     "react": "catalog:react",
     "react-dom": "catalog:react",
