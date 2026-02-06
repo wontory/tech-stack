@@ -2,7 +2,9 @@
 
 [![Checked with Biome](https://img.shields.io/badge/Checked_with-Biome-60a5fa?style=flat&logo=biome)](https://biomejs.dev)
 
-![tech-stack](https://tech-stack.wontory.dev/api/orbit?text=tech-stack&slugs=typescript,simpleicons,tailwindcss,nextdotjs)
+<p align="center">
+  <img src="https://tech-stack.wontory.dev/api/orbit?text=tech-stack&slugs=typescript,simpleicons,tailwindcss,nextdotjs" alt="tech-stack" />
+</p>
 
 > Showcase your tech stack with beautiful animated SVGs
 
@@ -48,7 +50,9 @@ You can generate SVGs using just the URL, without the web editor:
 <details>
 <summary>Preview</summary>
 
-![My Tech Stack](https://tech-stack.wontory.dev/api/orbit?text=MyStack&slugs=typescript,react,nextdotjs)
+<p align="center">
+  <img src="https://tech-stack.wontory.dev/api/orbit?text=MyStack&slugs=typescript,react,nextdotjs" alt="My Tech Stack" />
+</p>
 
 </details>
 
@@ -68,9 +72,13 @@ You can generate SVGs using just the URL, without the web editor:
 <details>
 <summary>Preview</summary>
 
-![Backend](https://tech-stack.wontory.dev/api/orbit?text=Backend&slugs=nodedotjs,postgresql,redis,docker)
+<p align="center">
+  <img src="https://tech-stack.wontory.dev/api/orbit?text=Backend&slugs=nodedotjs,postgresql,redis,docker" alt="Backend" />
+</p>
 
-![Frontend](https://tech-stack.wontory.dev/api/orbit?text=Frontend&slugs=react,typescript,tailwindcss,vite)
+<p align="center">
+  <img src="https://tech-stack.wontory.dev/api/orbit?text=Frontend&slugs=react,typescript,tailwindcss,vite" alt="Frontend" />
+</p>
 
 </details>
 
