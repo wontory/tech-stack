@@ -75,6 +75,9 @@ importers:
       '@tanstack/react-virtual':
         specifier: ^3.13.8
         version: 3.13.12(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+      '@tech-stack/badge':
+        specifier: workspace:*
+        version: link:../../packages/badge
       '@tech-stack/orbit':
         specifier: workspace:*
         version: link:../../packages/orbit
@@ -121,6 +124,19 @@ importers:
       '@types/react-syntax-highlighter':
         specifier: ^15.5.13
         version: 15.5.13
+      typescript:
+        specifier: catalog:core
+        version: 5.9.2
+
+  packages/badge:
+    dependencies:
+      simple-icons:
+        specifier: catalog:icons
+        version: 14.15.0
+    devDependencies:
+      '@total-typescript/tsconfig':
+        specifier: catalog:core
+        version: 1.0.4
       typescript:
         specifier: catalog:core
         version: 5.9.2

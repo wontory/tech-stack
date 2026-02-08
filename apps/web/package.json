@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@tanstack/react-virtual": "^3.13.8",
+    "@tech-stack/badge": "workspace:*",
     "@tech-stack/orbit": "workspace:*",
     "@tech-stack/ui": "workspace:*",
     "lucide-react": "catalog:icons",

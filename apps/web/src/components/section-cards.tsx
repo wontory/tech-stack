@@ -78,10 +78,17 @@ function BadgeCard() {
       title="Badge"
       description="tech-stack"
       content={
-        <div className="flex flex-1 items-center justify-center">
-          <span className="font-medium text-muted-foreground">
-            Work in progress.
-          </span>
+        <div className="flex flex-1 flex-col items-center justify-center gap-3">
+          <img
+            src="/api/badge?slug=nextdotjs&text=Next.js&highlight=true"
+            alt="Badge highlight"
+            draggable={false}
+          />
+          <img
+            src="/api/badge?slug=typescript&text=TypeScript"
+            alt="Badge"
+            draggable={false}
+          />
         </div>
       }
       footer={

@@ -1,14 +1,11 @@
-import Link from 'next/link'
-
-import { Button } from '@tech-stack/ui/components/button'
+import { BadgeCustomize } from '#components/badge-customize'
+import { BadgePreview } from '#components/badge-preview'
 
 export default function Page() {
   return (
-    <div className="flex flex-1 flex-col items-center justify-center gap-4">
-      <h1 className="font-bold text-2xl">Work in progress</h1>
-      <Button size="sm" asChild>
-        <Link href="/">Home</Link>
-      </Button>
+    <div className="grid @5xl/main:grid-cols-2 grid-cols-1 gap-4 px-4 lg:px-6">
+      <BadgePreview />
+      <BadgeCustomize />
     </div>
   )
 }
