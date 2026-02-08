@@ -6,6 +6,13 @@
   <img src="https://tech-stack.wontory.dev/api/orbit?text=tech-stack&slugs=typescript,simpleicons,tailwindcss,nextdotjs" alt="tech-stack" />
 </p>
 
+<p align="center">
+  <img src="https://tech-stack.wontory.dev/api/badge?slug=nextdotjs&text=Next.js&highlight=true" alt="Next.js" />
+  <img src="https://tech-stack.wontory.dev/api/badge?slug=typescript&text=TypeScript&highlight=true" alt="TypeScript" />
+  <img src="https://tech-stack.wontory.dev/api/badge?slug=tailwindcss&text=Tailwind CSS&highlight=true" alt="Tailwind CSS" />
+  <img src="https://tech-stack.wontory.dev/api/badge?slug=simpleicons&text=Simple Icons&highlight=true" alt="Simple Icons" />
+</p>
+
 > Showcase your tech stack with beautiful animated SVGs
 
 **tech-stack** is a web application that lets you visualize your technology stack in style. Make your GitHub profile, project README, or portfolio site stand out with eye-catching animated graphics.
@@ -20,6 +27,14 @@
 - **Real-time customization**: Instant preview with your choice of icons and text
 - **Smooth animations**: Icons orbit around center text with a glowing effect
 - **Dark mode** fully supported
+- **One-click embedding**: Copy markdown code and paste anywhere
+
+### 🏷️ Badge
+
+- **Shields.io-style badges** with animated effects
+- **Highlight mode**: Trailing light and shine animation with icon color
+- **Customizable**: Text, icon, text color, icon color, and background color
+- **3,200+ brand icons** supported (powered by Simple Icons)
 - **One-click embedding**: Copy markdown code and paste anywhere
 
 ### 🎯 Use Cases
@@ -43,6 +58,8 @@
 
 You can generate SVGs using just the URL, without the web editor:
 
+#### Orbit API
+
 ```markdown
 ![My Tech Stack](https://tech-stack.wontory.dev/api/orbit?text=MyStack&slugs=typescript,react,nextdotjs)
 ```
@@ -56,10 +73,39 @@ You can generate SVGs using just the URL, without the web editor:
 
 </details>
 
-#### Parameters
+**Parameters**
 
-- `text`: Text to display in the center
-- `slugs`: Simple Icons identifiers (comma-separated)
+| Parameter | Description | Example |
+|-----------|-------------|---------|
+| `text` | Center text | `MyStack` |
+| `slugs` | Simple Icons slugs (comma-separated) | `typescript,react` |
+
+#### Badge API
+
+```markdown
+![Next.js](https://tech-stack.wontory.dev/api/badge?slug=nextdotjs&text=Next.js&highlight=true)
+```
+
+<details>
+<summary>Preview</summary>
+
+<p align="center">
+  <img src="https://tech-stack.wontory.dev/api/badge?slug=nextdotjs&text=Next.js&highlight=true" alt="Next.js" />
+  <img src="https://tech-stack.wontory.dev/api/badge?slug=typescript&text=TypeScript" alt="TypeScript" />
+</p>
+
+</details>
+
+**Parameters**
+
+| Parameter | Description | Example |
+|-----------|-------------|---------|
+| `slug` | Simple Icons slug | `nextdotjs` |
+| `text` | Badge text | `Next.js` |
+| `highlight` | Enable trailing light and shine effect | `true` |
+| `textColor` | Text color (hex) | `ffffff` |
+| `iconColor` | Icon color (hex) | `00ff00` |
+| `bgColor` | Background color (hex) | `1a1a2e` |
 
 #### Examples
 
@@ -67,6 +113,9 @@ You can generate SVGs using just the URL, without the web editor:
 ![Backend](https://tech-stack.wontory.dev/api/orbit?text=Backend&slugs=nodedotjs,postgresql,redis,docker)
 
 ![Frontend](https://tech-stack.wontory.dev/api/orbit?text=Frontend&slugs=react,typescript,tailwindcss,vite)
+
+![Next.js](https://tech-stack.wontory.dev/api/badge?slug=nextdotjs&text=Next.js&highlight=true)
+![TypeScript](https://tech-stack.wontory.dev/api/badge?slug=typescript&text=TypeScript)
 ```
 
 <details>
@@ -78,6 +127,11 @@ You can generate SVGs using just the URL, without the web editor:
 
 <p align="center">
   <img src="https://tech-stack.wontory.dev/api/orbit?text=Frontend&slugs=react,typescript,tailwindcss,vite" alt="Frontend" />
+</p>
+
+<p align="center">
+  <img src="https://tech-stack.wontory.dev/api/badge?slug=nextdotjs&text=Next.js&highlight=true" alt="Next.js" />
+  <img src="https://tech-stack.wontory.dev/api/badge?slug=typescript&text=TypeScript" alt="TypeScript" />
 </p>
 
 </details>
@@ -149,7 +203,7 @@ This project is built with:
 - [x] Real-time preview and customization
 - [x] API endpoint
 - [x] Dark mode support
-- [ ] Badge-style SVG (in development)
+- [x] Badge-style SVG with animated highlight effect
 - [ ] More animation options
 
 ## 🤝 Contributing
