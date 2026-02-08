@@ -11,6 +11,7 @@ import {
   calculateOrbitRadius,
   calculateOuterOrbitIconSize,
   calculateSvgDimensions,
+  calculateTextWidth,
   escapeXml,
 } from '#utils'
 
@@ -208,6 +209,12 @@ export const generateOrbitSvg = (text: string, icons: SimpleIcon[]): string => {
   )
   const padding = calculateDynamicPadding(outerOrbitIconSize)
   const svgDimensions = calculateSvgDimensions(largestOrbitRadius, padding)
+  const textWidth = calculateTextWidth(text, SVG_CONFIG.fontSize)
+  const textPadding = 40
+  const minWidth = textWidth + textPadding * 2
+  if (svgDimensions.width < minWidth) {
+    svgDimensions.width = minWidth
+  }
   const center = calculateCenter(svgDimensions.width, svgDimensions.height)
 
   const orbitConfig: OrbitConfig = {
