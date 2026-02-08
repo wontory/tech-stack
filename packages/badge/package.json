@@ -1,0 +1,24 @@
+{
+  "name": "@tech-stack/badge",
+  "version": "0.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "check-types": "tsc --noEmit"
+  },
+  "dependencies": {
+    "simple-icons": "catalog:icons"
+  },
+  "devDependencies": {
+    "@total-typescript/tsconfig": "catalog:core",
+    "typescript": "catalog:core"
+  },
+  "imports": {
+    "#*": [
+      "./src/*.ts"
+    ]
+  },
+  "exports": {
+    ".": "./src/index.ts"
+  }
+}
