@@ -66,15 +66,12 @@ const generateTrailingLight = (
 
   return `
     <defs>
-      <filter id="trail-blur" x="-50%" y="-50%" width="200%" height="200%">
-        <feGaussianBlur stdDeviation="4" />
-      </filter>
       <clipPath id="trail-clip">
         <rect x="${ox - 2}" y="${oy - 2}" width="${width + 4}" height="${height + 4}" rx="${r + 2}" />
       </clipPath>
       ${gradient}
     </defs>
-    <g filter="url(#trail-blur)" clip-path="url(#trail-clip)">
+    <g style="filter:blur(4px)" clip-path="url(#trail-clip)">
       ${blobs}
     </g>
   `
@@ -87,13 +84,15 @@ const generateShineEffect = (
   ox: number,
   oy: number,
 ): string => {
+  const shineWidth = Math.round(width * 0.7)
+  const skewOffset = Math.round(height * 0.36)
+
   return `
     <defs>
       <clipPath id="shine-clip">
         <rect x="${ox + 0.5}" y="${oy + 0.5}" width="${width - 1}" height="${height - 1}" rx="${r - 0.5}" />
       </clipPath>
-      <linearGradient id="shine" gradientUnits="userSpaceOnUse"
-        x1="${ox}" y1="${oy}" x2="${ox + width}" y2="${oy + height * 2}">
+      <linearGradient id="shine">
         <stop offset="0%" stop-color="white" stop-opacity="0" />
         <stop offset="25%" stop-color="white" stop-opacity="0" />
         <stop offset="40%" stop-color="white" stop-opacity="0.15" />
@@ -101,27 +100,30 @@ const generateShineEffect = (
         <stop offset="60%" stop-color="white" stop-opacity="0.15" />
         <stop offset="75%" stop-color="white" stop-opacity="0" />
         <stop offset="100%" stop-color="white" stop-opacity="0" />
-        <animateTransform
-          attributeName="gradientTransform"
-          type="translate"
-          values="-${width},0; -${width},0; ${width},0; ${width},0"
-          keyTimes="0; 0.3; 0.7; 1"
-          calcMode="spline"
-          keySplines="0 0 1 1; 0.4 0 0.2 1; 0 0 1 1"
-          dur="3s"
-          repeatCount="indefinite"
-        />
       </linearGradient>
     </defs>
-    <rect
-      x="${ox}"
-      y="${oy}"
-      width="${width}"
-      height="${height}"
-      rx="${r}"
-      fill="url(#shine)"
-      clip-path="url(#shine-clip)"
-    />
+    <g clip-path="url(#shine-clip)">
+      <g transform="skewX(-20)">
+        <rect
+          x="${ox}"
+          y="${oy}"
+          width="${shineWidth}"
+          height="${height}"
+          fill="url(#shine)"
+        >
+          <animateTransform
+            attributeName="transform"
+            type="translate"
+            values="-${shineWidth + skewOffset},0; -${shineWidth + skewOffset},0; ${width + skewOffset},0; ${width + skewOffset},0"
+            keyTimes="0; 0.3; 0.7; 1"
+            calcMode="spline"
+            keySplines="0 0 1 1; 0.4 0 0.2 1; 0 0 1 1"
+            dur="3s"
+            repeatCount="indefinite"
+          />
+        </rect>
+      </g>
+    </g>
   `
 }
 
