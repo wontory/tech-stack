@@ -10,16 +10,16 @@
     "check-types": "tsc --noEmit"
   },
   "dependencies": {
-    "@tanstack/react-virtual": "^3.13.8",
+    "@tanstack/react-virtual": "^3.13.18",
     "@tech-stack/badge": "workspace:*",
     "@tech-stack/orbit": "workspace:*",
     "@tech-stack/ui": "workspace:*",
     "lucide-react": "catalog:icons",
-    "next": "15.3.8",
+    "next": "16.1.6",
     "next-themes": "catalog:style",
     "react": "catalog:react",
     "react-dom": "catalog:react",
-    "react-syntax-highlighter": "^15.6.1",
+    "react-syntax-highlighter": "^16.1.0",
     "react-use-measure": "^2.1.7",
     "simple-icons": "catalog:icons"
   },
