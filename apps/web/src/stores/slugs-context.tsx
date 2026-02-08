@@ -8,13 +8,12 @@ import {
   useState,
 } from 'react'
 
-export const SlugsContext = createContext<{
+type SlugsState = {
   slugs: string[]
   setSlugs: Dispatch<SetStateAction<string[]>>
-}>({
-  slugs: [],
-  setSlugs: () => {},
-})
+}
+
+export const SlugsContext = createContext<SlugsState | null>(null)
 
 export function SlugsProvider({ children }: { children: React.ReactNode }) {
   const [slugs, setSlugs] = useState<string[]>([])
@@ -27,9 +26,9 @@ export function SlugsProvider({ children }: { children: React.ReactNode }) {
 }
 
 export const useSlugsState = () => {
-  const slugsContext = useContext(SlugsContext)
-  if (!slugsContext) {
+  const context = useContext(SlugsContext)
+  if (!context) {
     throw new Error('useSlugsState must be used within a SlugsProvider')
   }
-  return slugsContext
+  return context
 }

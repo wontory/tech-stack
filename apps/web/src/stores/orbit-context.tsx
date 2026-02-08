@@ -10,13 +10,12 @@ import {
 
 import { SlugsContext, SlugsProvider } from '#stores/slugs-context'
 
-export const OrbitContext = createContext<{
+type OrbitState = {
   text: string
   setText: Dispatch<SetStateAction<string>>
-}>({
-  text: '',
-  setText: () => {},
-})
+}
+
+const OrbitContext = createContext<OrbitState | null>(null)
 
 export function OrbitProvider({ children }: { children: React.ReactNode }) {
   const [text, setText] = useState('')
@@ -32,7 +31,7 @@ export const useOrbitState = () => {
   const orbitContext = useContext(OrbitContext)
   const slugsContext = useContext(SlugsContext)
   if (!orbitContext || !slugsContext) {
-    throw new Error('useOrbitStates must be used within an OrbitProvider')
+    throw new Error('useOrbitState must be used within an OrbitProvider')
   }
   return {
     ...orbitContext,

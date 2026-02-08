@@ -1,6 +1,5 @@
-import type { Metadata } from 'next'
-
 import { SidebarInset } from '@tech-stack/ui/components/sidebar'
+import type { Metadata } from 'next'
 
 import '#styles/globals.css'
 import { Providers } from '#app/providers'
