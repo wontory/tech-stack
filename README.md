@@ -9,8 +9,8 @@
 <p align="center">
   <img src="https://tech-stack.wontory.dev/api/badge?slug=nextdotjs&text=Next.js&highlight=true" alt="Next.js" />
   <img src="https://tech-stack.wontory.dev/api/badge?slug=typescript&text=TypeScript&highlight=true" alt="TypeScript" />
-  <img src="https://tech-stack.wontory.dev/api/badge?slug=tailwindcss&text=Tailwind CSS&highlight=true" alt="Tailwind CSS" />
-  <img src="https://tech-stack.wontory.dev/api/badge?slug=simpleicons&text=Simple Icons&highlight=true" alt="Simple Icons" />
+  <img src="https://tech-stack.wontory.dev/api/badge?slug=tailwindcss&text=Tailwind%20CSS&highlight=true" alt="Tailwind CSS" />
+  <img src="https://tech-stack.wontory.dev/api/badge?slug=simpleicons&text=Simple%20Icons&highlight=true" alt="Simple Icons" />
 </p>
 
 > Showcase your tech stack with beautiful animated SVGs
