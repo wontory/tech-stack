@@ -3,18 +3,28 @@
 import { useVirtualizer } from '@tanstack/react-virtual'
 import { Input } from '@tech-stack/ui/components/input'
 import { ScrollArea } from '@tech-stack/ui/components/scroll-area'
-import { useRef, useState } from 'react'
+import { type ReactNode, useRef, useState } from 'react'
 import useMeasure from 'react-use-measure'
 import type { SimpleIcon } from 'simple-icons'
 import * as simpleIcons from 'simple-icons/icons'
 
-import { useSlugsState } from '#stores/slugs-context'
-import { PlusIcon } from 'lucide-react'
+import { colorizeIconSvg } from '#utils/simple-icon'
 
-export function SearchIcons({ id }: { id: string }) {
+interface IconSearchProps {
+  id: string
+  onIconClick: (slug: string) => void
+  isSelected?: (slug: string) => boolean
+  renderOverlay?: (selected: boolean) => ReactNode
+}
+
+export function IconSearch({
+  id,
+  onIconClick,
+  isSelected,
+  renderOverlay,
+}: IconSearchProps) {
   const parentRef = useRef<HTMLDivElement>(null)
   const [searchQuery, setSearchQuery] = useState('')
-  const { setSlugs } = useSlugsState()
 
   const [measureRef, { width: containerWidth }] = useMeasure()
 
@@ -65,6 +75,7 @@ export function SearchIcons({ id }: { id: string }) {
             const icon = filteredIcons[virtualRow.index]
             if (!icon) return null
             const { svg, hex, title, slug } = icon
+            const selected = isSelected?.(slug) ?? false
 
             return (
               <button
@@ -72,7 +83,7 @@ export function SearchIcons({ id }: { id: string }) {
                 ref={rowVirtualizer.measureElement}
                 data-index={virtualRow.index}
                 type="button"
-                onClick={() => setSlugs((prev) => [...prev, slug])}
+                onClick={() => onIconClick(slug)}
                 className="group absolute top-0 cursor-pointer p-4 will-change-transform"
                 style={{
                   left: `${(virtualRow.lane / lanes) * 100}%`,
@@ -85,14 +96,11 @@ export function SearchIcons({ id }: { id: string }) {
                     <div
                       // biome-ignore lint/security/noDangerouslySetInnerHtml: simple-icons
                       dangerouslySetInnerHTML={{
-                        __html: svg.replace('<svg', `<svg fill="#${hex}"`),
+                        __html: colorizeIconSvg(svg, hex),
                       }}
-                      className="p-8 transition-opacity duration-200 *:drop-shadow-svg group-hover:opacity-50"
+                      className={`p-8 transition-opacity duration-200 *:drop-shadow-svg ${selected ? 'opacity-50' : 'group-hover:opacity-50'}`}
                     />
-                    <PlusIcon
-                      className="-translate-x-1/2 -translate-y-1/2 absolute top-1/2 left-1/2 opacity-0 transition-opacity duration-200 group-hover:opacity-80"
-                      size={32}
-                    />
+                    {renderOverlay?.(selected)}
                   </div>
                   <div className="*:line-clamp-1">
                     <span className="font-medium">{title}</span>
