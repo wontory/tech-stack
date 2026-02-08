@@ -1,10 +1,9 @@
 'use client'
 
-import type { SimpleIcon } from 'simple-icons'
-import * as simpleIcons from 'simple-icons/icons'
+import { TrashIcon } from 'lucide-react'
 
 import { useSlugsState } from '#stores/slugs-context'
-import { TrashIcon } from 'lucide-react'
+import { colorizeIconSvg, resolveSimpleIcon } from '#utils/simple-icon'
 
 export function SelectedIcons() {
   const { slugs, setSlugs } = useSlugsState()
@@ -21,9 +20,7 @@ export function SelectedIcons() {
     <div className="flex w-full flex-wrap gap-2">
       {slugs.length > 0 ? (
         slugs.map((slug, index) => {
-          const iconKey =
-            `si${slug.charAt(0).toUpperCase() + slug.slice(1)}` as keyof typeof simpleIcons
-          const icon = simpleIcons[iconKey] as SimpleIcon | undefined
+          const icon = resolveSimpleIcon(slug)
           if (!icon) return null
           const { svg, hex } = icon
 
@@ -40,7 +37,7 @@ export function SelectedIcons() {
               <div
                 // biome-ignore lint/security/noDangerouslySetInnerHtml: simple-icons
                 dangerouslySetInnerHTML={{
-                  __html: svg.replace('<svg', `<svg fill="#${hex}"`),
+                  __html: colorizeIconSvg(svg, hex),
                 }}
                 className="size-6 drop-shadow-svg transition-opacity duration-200 group-hover:opacity-50"
               />

@@ -1,3 +1,4 @@
+import { CHAR_WIDTHS, CJK_CHAR_WIDTH, DEFAULT_CHAR_WIDTH } from '#constants'
 import type { Point, SvgDimensions } from '#types'
 
 const calculateLargestOrbitRadius = (
@@ -61,6 +62,38 @@ const calculateIconSizeMultiplier = (
   orbitIndex: number,
 ): number => baseMultiplier + incrementFactor * (orbitIndex + 1) ** 1.1
 
+const isCjk = (char: string): boolean => {
+  const code = char.charCodeAt(0)
+  return (
+    (code >= 0x4e00 && code <= 0x9fff) ||
+    (code >= 0x3400 && code <= 0x4dbf) ||
+    (code >= 0xac00 && code <= 0xd7af) ||
+    (code >= 0x3040 && code <= 0x30ff)
+  )
+}
+
+const calculateTextWidth = (text: string, fontSize: number): number => {
+  const scale = fontSize / 12
+  let width = 0
+  for (const char of text) {
+    if (isCjk(char)) {
+      width += CJK_CHAR_WIDTH
+    } else {
+      width += CHAR_WIDTHS[char] ?? DEFAULT_CHAR_WIDTH
+    }
+  }
+  return Math.ceil(width * scale)
+}
+
+const escapeXml = (text: string): string => {
+  return text
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;')
+}
+
 export {
   calculateLargestOrbitRadius,
   calculateOuterOrbitIconSize,
@@ -70,4 +103,6 @@ export {
   calculateOrbitRadius,
   calculateAnimationDuration,
   calculateIconSizeMultiplier,
+  calculateTextWidth,
+  escapeXml,
 }

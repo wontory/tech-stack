@@ -1,26 +1,24 @@
 import { generateOrbitSvg } from '@tech-stack/orbit'
 import type { NextRequest } from 'next/server'
-import type { SimpleIcon } from 'simple-icons'
-import * as simpleIcons from 'simple-icons/icons'
-
-type SimpleIconKey = keyof typeof simpleIcons
+import { resolveSimpleIcon } from '#utils/simple-icon'
 
 export async function GET(request: NextRequest) {
   const { searchParams } = request.nextUrl
-  const text = searchParams.get('text') || ''
+  const text = (searchParams.get('text') || '').slice(0, 100)
   const slugs = searchParams.get('slugs') || ''
-  const icons: SimpleIcon[] = []
+
+  const icons = []
 
   if (slugs) {
     for (const slug of slugs.split(',')) {
-      const iconKey = `si${slug.charAt(0).toUpperCase() + slug.slice(1)}`
-      if (!(iconKey in simpleIcons)) {
+      const icon = resolveSimpleIcon(slug)
+      if (!icon) {
         return Response.json(
           { error: `Icon with slug "${slug}" not found` },
           { status: 404 },
         )
       }
-      icons.push(simpleIcons[iconKey as SimpleIconKey] as SimpleIcon)
+      icons.push(icon)
     }
   }
 
@@ -28,6 +26,7 @@ export async function GET(request: NextRequest) {
   return new Response(orbitSvg, {
     headers: {
       'content-type': 'image/svg+xml',
+      'cache-control': 'public, max-age=3600, s-maxage=3600',
     },
   })
 }

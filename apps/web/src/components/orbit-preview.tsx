@@ -2,7 +2,7 @@
 
 import { Preview } from '#components/preview'
 import { useOrbitState } from '#stores/orbit-context'
-import { constructOrbitUrl } from '#utils/construct-url'
+import { constructOrbitUrl } from '#utils/construct-orbit-url'
 
 export function OrbitPreview() {
   const { text, slugs } = useOrbitState()

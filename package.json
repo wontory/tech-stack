@@ -16,14 +16,14 @@
     "check:write:unsafe": "biome check --write --unsafe ."
   },
   "dependencies": {
-    "@changesets/cli": "^2.29.4"
+    "@changesets/cli": "^2.29.8"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.0.0-beta.3",
-    "@commitlint/cli": "^19.8.1",
-    "@commitlint/config-conventional": "^19.8.1",
-    "lefthook": "^1.11.12",
-    "turbo": "^2.5.3"
+    "@biomejs/biome": "2.3.14",
+    "@commitlint/cli": "^20.4.1",
+    "@commitlint/config-conventional": "^20.4.1",
+    "lefthook": "^2.1.0",
+    "turbo": "^2.8.3"
   },
   "commitlint": {
     "extends": [

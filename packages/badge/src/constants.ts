@@ -1,29 +1,19 @@
-const SVG_CONFIG = {
-  fontSize: 84,
-  baseRadius: 52,
-  radiusIncrement: 60,
-  baseAnimationDuration: 8,
-  durationIncrement: 3,
-  baseSizeMultiplier: 0.8,
-  sizeIncrementFactor: 0.15,
-  iconBaseSize: 48,
+const BADGE_CONFIG = {
+  height: 32,
+  iconSize: 16,
+  paddingH: 10,
+  iconTextGap: 7,
+  fontSize: 12,
+  borderRadius: 9,
 } as const
 
 const COLORS = {
   gradient: {
-    start: '#6E7681',
-    middle: '#8B949E',
-    end: '#D1D5DA',
+    start: '#B4BCC5',
+    middle: '#CCD2D9',
+    end: '#E5E8EC',
   },
-  orbit: {
-    stroke: '#6E7681',
-    opacity: 0.33,
-    width: 0.5,
-  },
-  glow: {
-    floodColor: '#808080',
-    floodOpacity: 0.4,
-  },
+  border: '#585F68',
 } as const
 
 const FONT_FAMILY = `"Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif`
@@ -78,7 +68,7 @@ const CHAR_WIDTHS: Record<string, number> = {
 }
 
 export {
-  SVG_CONFIG,
+  BADGE_CONFIG,
   COLORS,
   FONT_FAMILY,
   DEFAULT_CHAR_WIDTH,

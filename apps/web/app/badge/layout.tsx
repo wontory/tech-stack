@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 
 import { InsetLayout } from '#layouts/inset-layout'
+import { BadgeProvider } from '#stores/badge-context'
 
 export const metadata: Metadata = {
   title: 'badge',
@@ -11,5 +12,9 @@ export default function PageLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  return <InsetLayout title="Badge">{children}</InsetLayout>
+  return (
+    <InsetLayout title="Badge">
+      <BadgeProvider>{children}</BadgeProvider>
+    </InsetLayout>
+  )
 }
