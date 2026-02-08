@@ -61,6 +61,15 @@ const calculateIconSizeMultiplier = (
   orbitIndex: number,
 ): number => baseMultiplier + incrementFactor * (orbitIndex + 1) ** 1.1
 
+const escapeXml = (text: string): string => {
+  return text
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;')
+}
+
 export {
   calculateLargestOrbitRadius,
   calculateOuterOrbitIconSize,
@@ -70,4 +79,5 @@ export {
   calculateOrbitRadius,
   calculateAnimationDuration,
   calculateIconSizeMultiplier,
+  escapeXml,
 }

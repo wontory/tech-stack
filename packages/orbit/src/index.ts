@@ -11,6 +11,7 @@ import {
   calculateOrbitRadius,
   calculateOuterOrbitIconSize,
   calculateSvgDimensions,
+  escapeXml,
 } from '#utils'
 
 const generateGradientDefs = (): string => `
@@ -59,7 +60,7 @@ const generateTextElement = (
       text-anchor="middle" 
       dominant-baseline="middle" 
       fill="url(#gradient)"
-    >${text}</text>
+    >${escapeXml(text)}</text>
   `
 
 const generateTextContent = (

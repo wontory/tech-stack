@@ -4,7 +4,7 @@ import { resolveSimpleIcon } from '#utils/simple-icon'
 
 export async function GET(request: NextRequest) {
   const { searchParams } = request.nextUrl
-  const text = searchParams.get('text') || ''
+  const text = (searchParams.get('text') || '').slice(0, 100)
   const slugs = searchParams.get('slugs') || ''
 
   const icons = []
@@ -26,6 +26,7 @@ export async function GET(request: NextRequest) {
   return new Response(orbitSvg, {
     headers: {
       'content-type': 'image/svg+xml',
+      'cache-control': 'public, max-age=3600, s-maxage=3600',
     },
   })
 }
