@@ -18,22 +18,6 @@ const generateFontStyle = (): string => `
     </style>
   `
 
-const generateGlowFilter = (
-  floodColor: string,
-  floodOpacity: number,
-  stdDeviation: number,
-): string => `
-    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur in="SourceAlpha" stdDeviation="${stdDeviation}" result="blur" />
-      <feFlood flood-color="${floodColor}" flood-opacity="${floodOpacity}" result="color" />
-      <feComposite in="color" in2="blur" operator="in" result="glow" />
-      <feMerge>
-        <feMergeNode in="glow" />
-        <feMergeNode in="SourceGraphic" />
-      </feMerge>
-    </filter>
-  `
-
 const generateTrailingLight = (
   width: number,
   height: number,
@@ -45,10 +29,10 @@ const generateTrailingLight = (
 
   const r = BADGE_CONFIG.borderRadius
   const perimeter = 2 * (width - 2 * r) + 2 * (height - 2 * r) + 2 * Math.PI * r
-  const blobCount = 3
+  const blobCount = 5
   const blobRadius = Math.min(height, Math.max(16, Math.round(perimeter / 12)))
   const dur = Math.max(3, perimeter / 60)
-  const gap = 0.3
+  const gap = 0.12
 
   const path = `M${ox + r},${oy} H${ox + width - r} Q${ox + width},${oy} ${ox + width},${oy + r} V${oy + height - r} Q${ox + width},${oy + height} ${ox + width - r},${oy + height} H${ox + r} Q${ox},${oy + height} ${ox},${oy + height - r} V${oy + r} Q${ox},${oy} ${ox + r},${oy} Z`
 
@@ -142,9 +126,7 @@ const generateIcon = (
       height="${size}"
       viewBox="0 0 24 24"
       fill="${color}"
-      filter="url(#glow)"
       xmlns="http://www.w3.org/2000/svg"
-      style="overflow: visible"
     >
       <path d="${icon.path}" />
     </svg>
@@ -238,7 +220,6 @@ export const generateBadgeSvg = (
         <stop offset="50%" stop-color="${gradMiddle}" />
         <stop offset="100%" stop-color="${gradEnd}" />
       </linearGradient>
-      ${generateGlowFilter('#808080', 0.4, 3)}
     </defs>
     <rect
       x="${ox}"
