@@ -20,8 +20,8 @@ catalogs:
       specifier: ^0.510.0
       version: 0.510.0
     simple-icons:
-      specifier: ^14.13.0
-      version: 14.15.0
+      specifier: ^16.8.0
+      version: 16.8.0
   react:
     '@types/react':
       specifier: ^19.0.0
@@ -107,7 +107,7 @@ importers:
         version: 2.1.7(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       simple-icons:
         specifier: catalog:icons
-        version: 14.15.0
+        version: 16.8.0
     devDependencies:
       '@total-typescript/tsconfig':
         specifier: catalog:core
@@ -132,7 +132,7 @@ importers:
     dependencies:
       simple-icons:
         specifier: catalog:icons
-        version: 14.15.0
+        version: 16.8.0
     devDependencies:
       '@total-typescript/tsconfig':
         specifier: catalog:core
@@ -145,7 +145,7 @@ importers:
     dependencies:
       simple-icons:
         specifier: catalog:icons
-        version: 14.15.0
+        version: 16.8.0
     devDependencies:
       '@total-typescript/tsconfig':
         specifier: catalog:core
@@ -1882,8 +1882,8 @@ packages:
     resolution: {integrity: sha512-bzyZ1e88w9O1iNJbKnOlvYTrWPDl46O1bG0D3XInv+9tkPrxrN8jUUTiFlDkkmKWgn1M6CfIA13SuGqOa9Korw==}
     engines: {node: '>=14'}
 
-  simple-icons@14.15.0:
-    resolution: {integrity: sha512-yjlJ8skP4isCd4dQTDGFbv0hQgDIr57DbWaovEeHADPAZa5DBEAs+3ZnBb76ti+yz7/OzFI3SqTP1SKku1uhCw==}
+  simple-icons@16.8.0:
+    resolution: {integrity: sha512-JOqFl9rXrUkEVwYryZVvfySG6znMg+79KpDIDtAd9mXZAPfLyhVdhhGKg7EYioYzozxXd+5KvURTMguTl0QfbA==}
     engines: {node: '>=0.12.18'}
 
   slash@3.0.0:
@@ -3623,7 +3623,7 @@ snapshots:
 
   signal-exit@4.1.0: {}
 
-  simple-icons@14.15.0: {}
+  simple-icons@16.8.0: {}
 
   slash@3.0.0: {}
 
